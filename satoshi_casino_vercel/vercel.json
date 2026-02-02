@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ],
+  "env": {
+    "LNBITS_URL": "@lnbits_url",
+    "LNBITS_ADMIN_KEY": "@lnbits_admin_key",
+    "LNBITS_INVOICE_KEY": "@lnbits_invoice_key"
+  }
+}
